@@ -421,6 +421,31 @@ footer {
   font-weight: 700;
 }
 
+.carousel_text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 2em 0;
+  box-sizing: content-box;
+  word-break: break-word;
+  white-space: normal;
+  background-color: #00000094;
+  box-shadow: 0px -20px 20px 20px #00000094;
+  opacity: 0 !important;
+  transition: opacity .4s;
+  text-align: center;
+  width: 100%;
+}
+
+.selected .carousel_text {
+  opacity: 1 !important;
+}
+
+.carousel_text h5 {
+  font-weight: 900;
+  font-size: 1.5em;
+}
+
 /* mobile & tablet */
 @media only screen and (max-width: 992px) {
 
