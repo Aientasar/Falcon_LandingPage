@@ -311,7 +311,7 @@ div#mobile_carousel {
   background: white;
   color: black;
   transform: scale(1);
-  margin: 0 2em;
+  margin: 2em;
 }
 
 .plans_container li {
@@ -447,7 +447,6 @@ footer {
 }
 
 .carousel_text p {
-  font-size: 12px;
   width: 80%;
   margin: auto;
   line-height: 1.6;
@@ -466,6 +465,12 @@ footer {
 
 /* mobile & tablet */
 @media only screen and (max-width: 992px) {
+
+
+  .plans_container {
+    transform: scale(.8);
+    padding: 4em 2em;
+  }
 
   .etr img {
     display: none;

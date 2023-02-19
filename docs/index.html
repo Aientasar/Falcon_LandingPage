@@ -636,7 +636,7 @@
               padding-bottom: 1em;
             "
           >
-            <strong>FALCON ON SOCIAL MEDIA</strong>
+            <strong class="d-none d-md-block">FALCON ON SOCIAL MEDIA</strong>
             <div class="social">
               <i class="bx bxl-facebook"></i>
               <i class="bx bxl-linkedin"></i>
@@ -765,6 +765,10 @@
               interval: 100,
               scale: 1.1,
               delay: 300,
+            });
+            ScrollReveal().reveal(".subhead", {
+              opacity: 0,
+              duration: 1000,
             });
             ScrollReveal().reveal(".anim_fadeUp", {
               distance: "20%",
