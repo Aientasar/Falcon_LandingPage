@@ -446,6 +446,13 @@ footer {
   font-size: 1.5em;
 }
 
+.carousel_text p {
+  font-size: 12px;
+  width: 80%;
+  margin: auto;
+  line-height: 1.6;
+}
+
 /* mobile & tablet */
 @media only screen and (max-width: 992px) {
 

@@ -786,32 +786,71 @@
       // Select the element that you want to add touch swipe functionality to
       const element = document.getElementById("mobile_carousel");
 
-      // Set initial values for touch coordinates
-      let startX = 0;
-      let startY = 0;
-      let endX = 0;
-      let endY = 0;
+      let touchstartX = 0;
+      let touchendX = 0;
+      let touchstartY = 0;
+      let touchendY = 0;
 
-      // Add touch event listeners to the element
-      element.addEventListener("touchstart", function (e) {
-        // Store the starting touch coordinates
-        startX = e.changedTouches[0].screenX;
-        startY = e.changedTouches[0].screenY;
+      function checkDirection() {
+        let difX = touchstartX - touchendX;
+        let difY = touchstartY - touchendY;
+        if (Math.abs(difX) > Math.abs(difY)) {
+          if (touchendX < touchstartX) {
+            scrollDiv(true);
+          }
+          if (touchendX > touchstartX) {
+            scrollDiv(false);
+          }
+        } else {
+          if (touchendY < touchstartY) {
+            /*up*/
+          }
+          if (touchendY > touchstartY) {
+            /*down*/
+          }
+        }
+      }
+      element.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        console.log(e);
+        touchstartX = e.changedTouches[0].screenX;
+        touchstartY = e.changedTouches[0].screenY;
       });
 
-      element.addEventListener("touchend", function (e) {
-        // Store the ending touch coordinates
-        endX = e.changedTouches[0].screenX;
-        endY = e.changedTouches[0].screenY;
-
-        // Determine the direction of the swipe
-        const deltaX = endX - startX;
-        const deltaY = endY - startY;
-
-        if (Math.abs(deltaX) > Math.abs(deltaY))
-          // Horizontal swipe
-          deltaX > 0 ? scrollDiv(false) : scrollDiv(true);
+      element.addEventListener("touchend", (e) => {
+        e.preventDefault();
+        console.log(e);
+        touchendX = e.changedTouches[0].screenX;
+        touchendY = e.changedTouches[0].screenY;
+        checkDirection();
       });
+
+      // // Set initial values for touch coordinates
+      // let startX = 0;
+      // let startY = 0;
+      // let endX = 0;
+      // let endY = 0;
+
+      // // Add touch event listeners to the element
+      // element.addEventListener("touchstart", function (e) {
+      //   // Store the starting touch coordinates
+      //   startX = e.changedTouches[0].screenX;
+      //   startY = e.changedTouches[0].screenY;
+      // });
+
+      // element.addEventListener("touchend", function (e) {
+      //   // Store the ending touch coordinates
+      //   endX = e.changedTouches[0].screenX;
+      //   endY = e.changedTouches[0].screenY;
+
+      //   // Determine the direction of the swipe
+      //   const deltaX = endX - startX;
+      //   const deltaY = endY - startY;
+
+      //   if (Math.abs(deltaX) > Math.abs(deltaY))
+      //     // Horizontal swipe
+      //     deltaX > 0 ? scrollDiv(false) : scrollDiv(true);
+      // });
     </script>
   </body>
 </html>
