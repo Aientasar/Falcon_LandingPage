@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Falcon - Driver Monitoring system</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" type="text/css" media="screen" href="home.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="carousel.css" />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/scrollreveal@4"></script>
+    <script>
+      history.scrollRestoration = "manual";
+    </script>
+  </head>
+  <body class="container overflow-hidden">
+    <div class="bg"></div>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid" style="position: relative">
+          <button
+            class="navbar-toggler border-0 p-2 mt-2"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+          >
+            <div class="hamburger-menu">
+              <span></span>
+              <span style="width: 15px"></span>
+              <span></span>
+            </div>
+          </button>
+
+          <div
+            class="navbar-collapse mt-3 collapse"
+            id="navbarSupportedContent"
+          >
+            <ul
+              class="navbar-nav me-auto mb-2 mb-lg-0"
+              style="text-align: center"
+            >
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#events">Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#apps">Applications</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Process</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Pricing</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">FAQ</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div
+            class="d-flex align-items-center flex-column me-1 logoIcon"
+            style="position: absolute; top: 10px; right: 5%"
+          >
+            <img
+              src="assets/logo.png"
+              style="
+                width: 4em;
+                filter: sepia(1);
+                margin-top: 10px;
+                margin-bottom: 15px;
+              "
+            />
+            <h4
+              class="m-o"
+              style="color: white; font-size: 1.2em; letter-spacing: 0.8px"
+            >
+              Falcon
+            </h4>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <row>
+      <div id="entrance" class="col-12 divider overflow-hidden">
+        <h1 style="opacity: 0" class="h1 text-center p-5" id="typewriter">
+          Falcon is a Driver Monitoring System,it helps prevent Accidents caused
+          by Human Negligence using Artificial Intelligence.
+        </h1>
+      </div>
+      <div class="mainContent" style="opacity: 0; transition: opacity 2s">
+        <div
+          id="home"
+          class="col-12 divider d-none mb-5 animate__animated animate__zoomIn animate__faster"
+        >
+          <main class="position-relative w-100 h-100">
+            <div id="carousel" class="carousel">
+              <div id="item_1" class="hideLeft">
+                <img src="assets/sample1.png" />
+              </div>
+
+              <div id="item_2" class="prevLeftSecond">
+                <img src="assets/sample2.png" />
+              </div>
+
+              <div id="item_3" class="prev">
+                <img src="assets/sample3.png" />
+              </div>
+
+              <div id="item_4" class="selected">
+                <img src="assets/sample1.png" />
+              </div>
+
+              <div id="item_5" class="next">
+                <img src="assets/sample2.png" />
+              </div>
+
+              <div id="item_6" class="nextRightSecond">
+                <img src="assets/sample3.png" />
+              </div>
+
+              <div id="item_7" class="hideRight">
+                <img src="assets/sample1.png" />
+              </div>
+
+              <div id="item_8" class="hideRight">
+                <img src="assets/sample2.png" />
+              </div>
+            </div>
+            <div id="mobile_carousel" class="mobile_carousel">
+              <div id="item_1" class="hideLeft">
+                <img src="assets/sample1.png" />
+              </div>
+
+              <div id="item_2" class="prevLeftSecond">
+                <img src="assets/sample2.png" />
+              </div>
+
+              <div id="item_3" class="prev">
+                <img src="assets/sample3.png" />
+              </div>
+
+              <div id="item_4" class="selected">
+                <img src="assets/sample1.png" />
+              </div>
+
+              <div id="item_5" class="next">
+                <img src="assets/sample2.png" />
+              </div>
+
+              <div id="item_6" class="nextRightSecond">
+                <img src="assets/sample3.png" />
+              </div>
+
+              <div id="item_7" class="hideRight">
+                <img src="assets/sample1.png" />
+              </div>
+
+              <div id="item_8" class="hideRight">
+                <img src="assets/sample2.png" />
+              </div>
+            </div>
+            <button
+              style="left: 2%"
+              class="button-82-pushable"
+              role="button"
+              id="prev"
+              onclick="scrollDiv(false)"
+            >
+              <i class="bx bx-md bxs-chevron-left-circle"></i>
+            </button>
+            <button
+              style="right: 5%"
+              class="button-82-pushable"
+              role="button"
+              id="next"
+              onclick="scrollDiv(true)"
+            >
+              <i class="bx bx-md bxs-chevron-right-circle"></i>
+            </button>
+          </main>
+        </div>
+        <div
+          id="events"
+          class="col-12 d-none divider animate__animated animate__fadeIn"
+        >
+          <h2 class="subhead">Monitoring Events</h2>
+          <ul class="widget-list">
+            <li class="widget"><img src="assets/sample2.png" /></li>
+            <li class="widget"><img src="assets/sample2.png" /></li>
+            <li class="widget"><img src="assets/sample1.png" /></li>
+            <li class="widget"><img src="assets/sample2.png" /></li>
+            <li class="widget"><img src="assets/sample3.png" /></li>
+            <li class="widget"><img src="assets/sample1.png" /></li>
+            <li class="widget"><img src="assets/sample2.png" /></li>
+            <li class="widget"><img src="assets/sample3.png" /></li>
+            <li class="widget"><img src="assets/sample1.png" /></li>
+            <li class="widget"><img src="assets/sample2.png" /></li>
+          </ul>
+        </div>
+        <div class="col-12 divider" id="apps">
+          <h2 class="subhead">Devices & Applications</h2>
+          <div class="feature_box">
+            <div class="feature_container">
+              <div class="anim_left">
+                <!-- 3d product view of sricked device + device screen for 2 sec -->
+                <img src="assets/feature1.png" />
+              </div>
+              <div class="anim_fadeUp">
+                <h3>Vehcile Console Device</h3>
+                <ul class="feature_list" style="text-transform: capitalize">
+                  <li>Console device for vehicles</li>
+                  <li>One-time installation</li>
+                  <li>Real-Time Driving Monitoring</li>
+                  <li>Driver In-Cabin alert system</li>
+                  <li>Real-time notification for owner and driver apps</li>
+                </ul>
+              </div>
+            </div>
+            <div class="feature_container">
+              <div class="anim_right">
+                <!-- owner app screen recording -->
+                <img src="assets/feature2.png" />
+              </div>
+              <div class="anim_fadeUp">
+                <h3>Onwer Mobile App</h3>
+                <ul class="feature_list" style="text-transform: capitalize">
+                  <li>Android and iOS app for vehicle owners</li>
+                  <li>
+                    Real-time unsafe event mobile notification for all owned
+                    vehicles
+                  </li>
+                  <li>
+                    Database of all trips and events for all owned vehicles
+                  </li>
+                  <li>Images and proofs of unsafe events</li>
+                </ul>
+              </div>
+            </div>
+            <div class="feature_container">
+              <div class="anim_left">
+                <!-- driver app screen recording -->
+                <img src="assets/feature3.png" />
+              </div>
+              <div class="anim_fadeUp">
+                <h3>Driver App</h3>
+                <ul class="feature_list" style="text-transform: capitalize">
+                  <li>Android and iOS app for Driver</li>
+                  <li>
+                    Real-time unsafe event mobile notification for self driving
+                    vehicles
+                  </li>
+                  <li>Database of self driven trips and events occured</li>
+                  <li>Images and proofs of unsafe events</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 divider" id="process">
+          <h2 class="subhead">3-Step Process</h2>
+          <ul>
+            <li>
+              <img src="assets/process1.png" />
+              <img
+                class="processCircle"
+                id="process1"
+                src="assets/processCircle.png"
+              /><label>1. Place an order for a device.</label>
+            </li>
+            <li>
+              <img src="assets/process2.png" />
+              <img
+                class="processCircle"
+                id="process2"
+                src="assets/processCircle.png"
+              /><label
+                >2. Our team visits your site and installs the console device in
+                a vehicle.</label
+              >
+            </li>
+            <li>
+              <img src="assets/process3.png" />
+              <img
+                class="processCircle"
+                id="process3"
+                src="assets/processCircle.png"
+              /><label
+                >3. Install the Android or iOS Falcon application and start
+                driver monitoring in real-time.</label
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="col-12 divider">
+          <div class="etr">
+            <div class="anim_fadeUp">
+              <p>
+                <label
+                  style="
+                    font-weight: 700;
+                    font-size: 2em;
+                    line-height: 1.2;
+                    margin-bottom: 15px;
+                  "
+                >
+                  Enterprise Dashboards
+                </label>
+                Customised Dashboards for enterpirses ,providing indepth
+                analytics of driving patterns of there fleet drivers
+              </p>
+            </div>
+            <div class="anim_right">
+              <img src="assets/dashboard.png" />
+            </div>
+          </div>
+        </div>
+        <div class="col-12 divider" id="pricing">
+          <div class="plans_box anim_fadeUp">
+            <div class="plans_container">
+              <h3>3 Months</h3>
+              <h5><small>Per Device</small><label>$ 30 USD/Month</label></h5>
+              <hr />
+              <ul>
+                <li><i class="bx bxs-check-circle"></i>Free Installation</li>
+                <li><i class="bx bxs-check-circle"></i>Free Console Device</li>
+                <li><i class="bx bxs-check-circle"></i>Console App</li>
+                <li>
+                  <i class="bx bxs-check-circle"></i>Andriod & iOS Owner App
+                </li>
+                <li>
+                  <i class="bx bxs-check-circle"></i>Andriod & iOS Driver App
+                </li>
+              </ul>
+              <button>Order Now</button>
+            </div>
+            <div
+              class="plans_container selected animate__animated animate__pulse animate__infinite animate__slow"
+            >
+              <h3>3 Months</h3>
+              <h5><small>Per Device</small><label>$ 30 USD/Month</label></h5>
+              <hr />
+              <ul>
+                <li><i class="bx bxs-check-circle"></i>Free Installation</li>
+                <li><i class="bx bxs-check-circle"></i>Free Console Device</li>
+                <li><i class="bx bxs-check-circle"></i>Console App</li>
+                <li>
+                  <i class="bx bxs-check-circle"></i>Andriod & iOS Owner App
+                </li>
+                <li>
+                  <i class="bx bxs-check-circle"></i>Andriod & iOS Driver App
+                </li>
+              </ul>
+              <button>Order Now</button>
+            </div>
+            <div class="plans_container">
+              <h3>3 Months</h3>
+              <h5><small>Per Device</small><label>$ 30 USD/Month</label></h5>
+              <hr />
+              <ul>
+                <li><i class="bx bxs-check-circle"></i>Free Installation</li>
+                <li><i class="bx bxs-check-circle"></i>Free Console Device</li>
+                <li><i class="bx bxs-check-circle"></i>Console App</li>
+                <li>
+                  <i class="bx bxs-check-circle"></i>Andriod & iOS Owner App
+                </li>
+                <li>
+                  <i class="bx bxs-check-circle"></i>Andriod & iOS Driver App
+                </li>
+              </ul>
+              <button>Order Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 divider" id="faq">
+          <h2 class="subhead mb-5">FAQ's</h2>
+          <div class="anim_fadeUp" id="accordion">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <button
+                  class="btn btn-link"
+                  data-toggle="collapse"
+                  data-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Collapsible Group Item #1
+                </button>
+                <i class="bx bx-plus bx-md"></i>
+              </div>
+
+              <div
+                id="collapseOne"
+                class="collapse"
+                aria-labelledby="headingOne"
+                data-parent="#accordion"
+              >
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life
+                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                  non cupidatat skateboard dolor brunch. Food truck quinoa
+                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+                  aliqua put a bird on it squid single-origin coffee nulla
+                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
+                  beer labore wes anderson cred nesciunt sapiente ea proident.
+                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
+                  beer farm-to-table, raw denim aesthetic synth nesciunt you
+                  probably haven't heard of them accusamus labore sustainable
+                  VHS.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <button
+                  class="btn btn-link"
+                  data-toggle="collapse"
+                  data-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Collapsible Group Item #1
+                </button>
+                <i class="bx bx-plus bx-md"></i>
+              </div>
+
+              <div
+                id="collapseOne"
+                class="collapse"
+                aria-labelledby="headingOne"
+                data-parent="#accordion"
+              >
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life
+                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                  non cupidatat skateboard dolor brunch. Food truck quinoa
+                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+                  aliqua put a bird on it squid single-origin coffee nulla
+                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
+                  beer labore wes anderson cred nesciunt sapiente ea proident.
+                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
+                  beer farm-to-table, raw denim aesthetic synth nesciunt you
+                  probably haven't heard of them accusamus labore sustainable
+                  VHS.
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <button
+                  class="btn btn-link"
+                  data-toggle="collapse"
+                  data-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  Collapsible Group Item #1
+                </button>
+                <i class="bx bx-plus bx-sm"></i>
+              </div>
+
+              <div
+                id="collapseOne"
+                class="collapse"
+                aria-labelledby="headingOne"
+                data-parent="#accordion"
+              >
+                <div class="card-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life
+                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
+                  non cupidatat skateboard dolor brunch. Food truck quinoa
+                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
+                  aliqua put a bird on it squid single-origin coffee nulla
+                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
+                  beer labore wes anderson cred nesciunt sapiente ea proident.
+                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
+                  beer farm-to-table, raw denim aesthetic synth nesciunt you
+                  probably haven't heard of them accusamus labore sustainable
+                  VHS.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 divider mb-2" id="contact">
+          <div class="anim_fadeUp">
+            <strong>CONTACT US AT</strong
+            ><label>+483 578 653 <br />info@falcondrivermonitor.com</label>
+          </div>
+          <div class="anim_fadeUp">
+            <strong>OUR ADDRESS</strong
+            ><label>MINSKA 25, BUILDING 1923, 03-808 WARSAW, POLAND</label>
+          </div>
+          <div
+            class="anim_fadeUp"
+            style="
+              border-top: solid 1px;
+              padding-top: 1em;
+              border-bottom: solid 1px;
+              padding-bottom: 1em;
+            "
+          >
+            <strong>FALCON ON SOCIAL MEDIA</strong>
+            <div class="social">
+              <i class="bx bxl-facebook"></i>
+              <i class="bx bxl-linkedin"></i>
+              <i class="bx bxl-twitter"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </row>
+
+    <footer class="anim_fadeUp">
+      <small>COPYRIGHT © 2023 Falcon Group Inc.</small>
+    </footer>
+    <!-- bootstrap -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script src="carousel.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/leader-line/1.0.3/leader-line.min.js"
+      integrity="sha512-aFBNsI3+D6ObLLtyKwdZPZzDbcCC6+Bh+2UNV8HC0R95BpcBT+dmmZ5NMpJi/Ic8uO0W7FGcg33IfuHg+7Ryew=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      var textWrapper = document.getElementById("typewriter");
+      textWrapper.innerHTML = textWrapper.textContent.replace(
+        /\S/g,
+        "<span class='letter'>$&</span>"
+      );
+      textWrapper.style.opacity = 1;
+
+      function scrollDiv(positive) {
+        console.log(positive);
+        var elem = document.getElementById("mobile_carousel");
+        var nextElem = positive
+          ? document.querySelector("#mobile_carousel .selected")
+              .nextElementSibling
+          : document.querySelector("#mobile_carousel .selected")
+              .previousElementSibling;
+
+        console.log(nextElem);
+        if (nextElem) {
+          document
+            .querySelector("#mobile_carousel .selected")
+            .classList.remove("selected");
+          nextElem.classList.add("selected");
+
+          setTimeout(() => {
+            nextElem.scrollIntoView({
+              behavior: "smooth",
+              block: "nearest",
+              inline: "center",
+            });
+            setTimeout(() => {
+              elem.scrollTo({
+                left: positive
+                  ? elem.scrollLeft +
+                    0.05 * nextElem.getBoundingClientRect().width
+                  : elem.scrollLeft -
+                    0.05 * nextElem.getBoundingClientRect().width, //scroll to the bottom of the element
+                behavior: "smooth", //auto, smooth, initial, inherit
+                block: "nearest",
+                inline: "center",
+              });
+            }, 300);
+          }, 100);
+        }
+      }
+
+      anime
+        .timeline({ loop: false })
+        .add({
+          targets: "#typewriter .letter",
+          translateX: [40, 0],
+          translateZ: 0,
+          opacity: [0, 1],
+          easing: "easeOutExpo",
+          duration: 1000,
+          delay: (el, i) => 500 + 30 * i,
+        })
+        .add({
+          targets: "#typewriter ",
+          translateX: [0, -30],
+          opacity: [1, 0],
+          easing: "easeInExpo",
+          duration: 1100,
+          delay: (el, i) => 100 + 30 * i,
+          complete: function (anim) {
+            document.querySelector(".mainContent").style.opacity = 1;
+            document.querySelector("#entrance").classList.add("d-none");
+            document.querySelector("#home").classList.remove("d-none");
+            document.querySelector("#events").classList.remove("d-none");
+            document.querySelector("body").classList.remove("overflow-hidden");
+            // mobile scroll default
+            document
+              .querySelector("#mobile_carousel .selected")
+              .scrollIntoView({
+                block: "nearest",
+                inline: "center",
+              });
+            // Scroll Reveal
+            ScrollReveal().reveal(".widget", {
+              distance: "100%",
+              opacity: 0,
+              origin: "bottom",
+              interval: 100,
+              scale: 1.1,
+              delay: 300,
+            });
+            ScrollReveal().reveal(".anim_fadeUp", {
+              distance: "20%",
+              origin: "bottom",
+              interval: 100,
+              delay: 300,
+              opacity: 0,
+              duration: 1000,
+            });
+            ScrollReveal().reveal(".anim_right", {
+              distance: "20%",
+              origin: "right",
+              delay: 300,
+              opacity: 0,
+              duration: 1000,
+            });
+            ScrollReveal().reveal(".anim_left", {
+              distance: "20%",
+              origin: "left",
+              delay: 300,
+              opacity: 0,
+              duration: 1000,
+            });
+            ScrollReveal().reveal("#process ul li", {
+              distance: "20%",
+              origin: "left",
+              interval: 100,
+              delay: 300,
+              opacity: 0,
+              duration: 1000,
+              afterReveal: function (el) {
+                setTimeout(() => {
+                  new LeaderLine(
+                    document.getElementById("process1"),
+                    document.getElementById("process2"),
+                    {
+                      dash: { animation: true },
+                      color: "#efefef",
+                      size: 2,
+                      showEffectName: "draw",
+                    }
+                  );
+                  new LeaderLine(
+                    document.getElementById("process2"),
+                    document.getElementById("process3"),
+                    {
+                      dash: { animation: true },
+                      color: "#efefef",
+                      size: 2,
+                      showEffectName: "draw",
+                    }
+                  );
+                }, 300);
+              },
+            });
+          },
+        });
+    </script>
+    <!-- touch swipe -->
+    <script>
+      // Select the element that you want to add touch swipe functionality to
+      const element = document.getElementById("mobile_carousel");
+
+      // Set initial values for touch coordinates
+      let startX = 0;
+      let startY = 0;
+      let endX = 0;
+      let endY = 0;
+
+      // Add touch event listeners to the element
+      element.addEventListener("touchstart", function (e) {
+        // Store the starting touch coordinates
+        startX = e.changedTouches[0].screenX;
+        startY = e.changedTouches[0].screenY;
+      });
+
+      element.addEventListener("touchend", function (e) {
+        // Store the ending touch coordinates
+        endX = e.changedTouches[0].screenX;
+        endY = e.changedTouches[0].screenY;
+
+        // Determine the direction of the swipe
+        const deltaX = endX - startX;
+        const deltaY = endY - startY;
+
+        if (Math.abs(deltaX) > Math.abs(deltaY))
+          // Horizontal swipe
+          deltaX > 0 ? scrollDiv(false) : scrollDiv(true);
+      });
+    </script>
+  </body>
+</html>
