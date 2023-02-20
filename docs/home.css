@@ -1,6 +1,6 @@
 #carousel {
     position: relative;
-    height: 80%;
+    height: 100%;
     overflow-y: visible;
     overflow-x: hidden;
     display: flex;
@@ -8,10 +8,11 @@
     transform-origin: center;
     transform: scale(1.1);
     max-height: 650px;
+    margin-top: -3em;
 }
 
 div#home {
-    height: 100vh;
+    height: 80vh;
 }
 
 #carousel img:hover {
