@@ -447,7 +447,7 @@ footer {
 }
 
 .carousel_text p {
-  width: 80%;
+  padding: 10px;
   margin: auto;
   line-height: 1.6;
 }
@@ -466,6 +466,10 @@ footer {
 /* mobile & tablet */
 @media only screen and (max-width: 992px) {
 
+  #carousel div.selected {
+    width: 80% !important;
+    box-shadow: 0px -1px 20px 7px rgb(223 223 223 / 15%);
+  }
 
   .plans_container {
     transform: scale(.8);
@@ -490,12 +494,12 @@ footer {
     gap: 1em
   }
 
-  .button-82-pushable {
-    display: none !important;
+  #carousel div.prev {
+    left: 10% !important;
   }
 
-  div#home {
-    height: auto;
+  #carousel div.next {
+    left: 90% !important;
   }
 
   .divider {
@@ -523,14 +527,10 @@ footer {
     flex-direction: column;
   }
 
-
   div#carousel {
-    display: none !important;
+    transform: none;
   }
 
-  div#mobile_carousel {
-    display: inline-block !important;
-  }
 
   .logoIcon {
     transform: scale(.8);

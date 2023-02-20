@@ -177,75 +177,6 @@
                 </div>
               </div>
             </div>
-            <div id="mobile_carousel" class="mobile_carousel">
-              <div id="item_1" class="hideLeft">
-                <img src="assets/sample1.png" />
-                <div class="carousel_text">
-                  <h5>Drowsy Driving</h5>
-                  <p>Monitors if a driver is Yawning,Closing Eyes or Sleepy</p>
-                </div>
-              </div>
-
-              <div id="item_2" class="prevLeftSecond">
-                <img src="assets/sample2.png" />
-                <div class="carousel_text">
-                  <h5>Drowsy Driving</h5>
-                  <p>Monitors if a driver is Yawning,Closing Eyes or Sleepy</p>
-                </div>
-              </div>
-
-              <div id="item_3" class="prev">
-                <img src="assets/sample3.png" />
-                <div class="carousel_text">
-                  <h5>Drowsy Driving</h5>
-                  <p>Monitors if a driver is Yawning,Closing Eyes or Sleepy</p>
-                </div>
-              </div>
-
-              <div id="item_4" class="selected">
-                <img src="assets/sample1.png" />
-                <div class="carousel_text">
-                  <h5>Drowsy Driving</h5>
-                  <p>Monitors if a driver is Yawning,Closing Eyes or Sleepy</p>
-                </div>
-                <div class="carousel_text">
-                  <h5>Drowsy Driving</h5>
-                  <p>Monitors if a driver is Yawning,Closing Eyes or Sleepy</p>
-                </div>
-              </div>
-
-              <div id="item_5" class="next">
-                <img src="assets/sample2.png" />
-                <div class="carousel_text">
-                  <h5>Drowsy Driving</h5>
-                  <p>Monitors if a driver is Yawning,Closing Eyes or Sleepy</p>
-                </div>
-              </div>
-
-              <div id="item_6" class="nextRightSecond">
-                <img src="assets/sample3.png" />
-                <div class="carousel_text">
-                  <h5>Drowsy Driving</h5>
-                  <p>Monitors if a driver is Yawning,Closing Eyes or Sleepy</p>
-                </div>
-              </div>
-
-              <div id="item_7" class="hideRight">
-                <img src="assets/sample1.png" />
-                <div class="carousel_text">
-                  <h5>Drowsy Driving</h5>
-                  <p>Monitors if a driver is Yawning,Closing Eyes or Sleepy</p>
-                </div>
-              </div>
-
-              <div id="item_8" class="hideRight">
-                <img src="assets/sample2.png" />
-                <div class="carousel_text">
-                  <h5>Drowsy Driving</h5>
-                  <p>Monitors if a driver is Yawning,Closing Eyes or Sleepy</p>
-                </div>
-              </div>
-            </div>
             <button
               style="left: 2%"
               class="button-82-pushable"
@@ -688,7 +619,7 @@
       );
       textWrapper.style.opacity = 1;
 
-      function scrollDiv(positive) {
+      function scrollDiv(positive, auto = false) {
         console.log(positive);
         var elem = document.getElementById("mobile_carousel");
         var nextElem = positive
@@ -697,7 +628,12 @@
           : document.querySelector("#mobile_carousel .selected")
               .previousElementSibling;
 
-        console.log(nextElem);
+        if (!nextElem && auto) {
+          nextElem = document.querySelector(
+            "#mobile_carousel>div:first-child "
+          );
+        }
+
         if (nextElem) {
           document
             .querySelector("#mobile_carousel .selected")
@@ -705,24 +641,36 @@
           nextElem.classList.add("selected");
 
           setTimeout(() => {
-            nextElem.scrollIntoView({
-              behavior: "smooth",
+            elem.scrollTo({
+              left: positive
+                ? elem.scrollLeft + nextElem.getBoundingClientRect().width * 1.5
+                : elem.scrollLeft -
+                  nextElem.getBoundingClientRect().width * 1.5, //scroll to the bottom of the element
+              behavior: "smooth", //auto, smooth, initial, inherit
               block: "nearest",
               inline: "center",
             });
-            setTimeout(() => {
-              elem.scrollTo({
-                left: positive
-                  ? elem.scrollLeft +
-                    0.05 * nextElem.getBoundingClientRect().width
-                  : elem.scrollLeft -
-                    0.05 * nextElem.getBoundingClientRect().width, //scroll to the bottom of the element
-                behavior: "smooth", //auto, smooth, initial, inherit
-                block: "nearest",
-                inline: "center",
-              });
-            }, 300);
-          }, 200);
+          }, 300);
+
+          // setTimeout(() => {
+          //   nextElem.scrollIntoView({
+          //     behavior: "smooth",
+          //     block: "nearest",
+          //     inline: "center",
+          //   });
+          //   // setTimeout(() => {
+          //   //   elem.scrollTo({
+          //   //     left: positive
+          //   //       ? elem.scrollLeft +
+          //   //         0.05 * nextElem.getBoundingClientRect().width
+          //   //       : elem.scrollLeft -
+          //   //         0.05 * nextElem.getBoundingClientRect().width, //scroll to the bottom of the element
+          //   //     behavior: "smooth", //auto, smooth, initial, inherit
+          //   //     block: "nearest",
+          //   //     inline: "center",
+          //   //   });
+          //   // }, 300);
+          // }, 200);
         }
       }
 
@@ -837,6 +785,9 @@
     </script>
     <!-- touch swipe -->
     <script>
+      setInterval(() => {
+        scrollDiv(true, true);
+      }, 5000);
       // Select the element that you want to add touch swipe functionality to
       const element = document.getElementById("mobile_carousel");
 
