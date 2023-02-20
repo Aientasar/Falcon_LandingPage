@@ -450,6 +450,11 @@ footer {
   padding: 10px;
   margin: auto;
   line-height: 1.6;
+  opacity: 0;
+  transition: all .4s;
+  font-family: 'Lora',
+    serif;
+  max-width: 90%;
 }
 
 .widget .carousel_text {

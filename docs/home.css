@@ -136,3 +136,20 @@ main>button:active .button-82-shadow {
 main>button:focus:not(:focus-visible) {
     outline: none;
 }
+
+.carousel_text>* {
+    opacity: 0;
+    transition: all .4s;
+    transform: translateY(10px)
+}
+
+.selected .carousel_text>* {
+    opacity: 1;
+    transform: translateY(0px);
+    transition: all .4s;
+    transition-delay: .4s;
+}
+
+.selected .carousel_text p {
+    transition-delay: .6s;
+}
