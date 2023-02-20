@@ -304,7 +304,7 @@
                 </ul>
               </div>
             </div>
-            <div class="feature_container">
+            <div class="feature_container noAnim">
               <div class="anim_left">
                 <!-- driver app screen recording -->
                 <img src="assets/feature3.png" />
@@ -619,61 +619,6 @@
       );
       textWrapper.style.opacity = 1;
 
-      function scrollDiv(positive, auto = false) {
-        console.log(positive);
-        var elem = document.getElementById("mobile_carousel");
-        var nextElem = positive
-          ? document.querySelector("#mobile_carousel .selected")
-              .nextElementSibling
-          : document.querySelector("#mobile_carousel .selected")
-              .previousElementSibling;
-
-        if (!nextElem && auto) {
-          nextElem = document.querySelector(
-            "#mobile_carousel>div:first-child "
-          );
-        }
-
-        if (nextElem) {
-          document
-            .querySelector("#mobile_carousel .selected")
-            .classList.remove("selected");
-          nextElem.classList.add("selected");
-
-          setTimeout(() => {
-            elem.scrollTo({
-              left: positive
-                ? elem.scrollLeft + nextElem.getBoundingClientRect().width * 1.5
-                : elem.scrollLeft -
-                  nextElem.getBoundingClientRect().width * 1.5, //scroll to the bottom of the element
-              behavior: "smooth", //auto, smooth, initial, inherit
-              block: "nearest",
-              inline: "center",
-            });
-          }, 300);
-
-          // setTimeout(() => {
-          //   nextElem.scrollIntoView({
-          //     behavior: "smooth",
-          //     block: "nearest",
-          //     inline: "center",
-          //   });
-          //   // setTimeout(() => {
-          //   //   elem.scrollTo({
-          //   //     left: positive
-          //   //       ? elem.scrollLeft +
-          //   //         0.05 * nextElem.getBoundingClientRect().width
-          //   //       : elem.scrollLeft -
-          //   //         0.05 * nextElem.getBoundingClientRect().width, //scroll to the bottom of the element
-          //   //     behavior: "smooth", //auto, smooth, initial, inherit
-          //   //     block: "nearest",
-          //   //     inline: "center",
-          //   //   });
-          //   // }, 300);
-          // }, 200);
-        }
-      }
-
       anime
         .timeline({ loop: false })
         .add({
@@ -698,13 +643,6 @@
             document.querySelector("#home").classList.remove("d-none");
             document.querySelector("#events").classList.remove("d-none");
             document.querySelector("body").classList.remove("overflow-hidden");
-            // mobile scroll default
-            document
-              .querySelector("#mobile_carousel .selected")
-              .scrollIntoView({
-                block: "nearest",
-                inline: "center",
-              });
             // Scroll Reveal
             ScrollReveal().reveal(".widget", {
               distance: "100%",
@@ -782,80 +720,6 @@
             });
           },
         });
-    </script>
-    <!-- touch swipe -->
-    <script>
-      setInterval(() => {
-        scrollDiv(true, true);
-      }, 5000);
-      // Select the element that you want to add touch swipe functionality to
-      const element = document.getElementById("mobile_carousel");
-
-      let touchstartX = 0;
-      let touchendX = 0;
-      let touchstartY = 0;
-      let touchendY = 0;
-
-      function checkDirection() {
-        let difX = touchstartX - touchendX;
-        let difY = touchstartY - touchendY;
-        if (Math.abs(difX) > Math.abs(difY)) {
-          if (touchendX < touchstartX) {
-            scrollDiv(true);
-          }
-          if (touchendX > touchstartX) {
-            scrollDiv(false);
-          }
-        } else {
-          if (touchendY < touchstartY) {
-            /*up*/
-          }
-          if (touchendY > touchstartY) {
-            /*down*/
-          }
-        }
-      }
-      element.addEventListener("touchstart", (e) => {
-        e.preventDefault();
-        console.log(e);
-        touchstartX = e.changedTouches[0].screenX;
-        touchstartY = e.changedTouches[0].screenY;
-      });
-
-      element.addEventListener("touchend", (e) => {
-        e.preventDefault();
-        console.log(e);
-        touchendX = e.changedTouches[0].screenX;
-        touchendY = e.changedTouches[0].screenY;
-        checkDirection();
-      });
-
-      // // Set initial values for touch coordinates
-      // let startX = 0;
-      // let startY = 0;
-      // let endX = 0;
-      // let endY = 0;
-
-      // // Add touch event listeners to the element
-      // element.addEventListener("touchstart", function (e) {
-      //   // Store the starting touch coordinates
-      //   startX = e.changedTouches[0].screenX;
-      //   startY = e.changedTouches[0].screenY;
-      // });
-
-      // element.addEventListener("touchend", function (e) {
-      //   // Store the ending touch coordinates
-      //   endX = e.changedTouches[0].screenX;
-      //   endY = e.changedTouches[0].screenY;
-
-      //   // Determine the direction of the swipe
-      //   const deltaX = endX - startX;
-      //   const deltaY = endY - startY;
-
-      //   if (Math.abs(deltaX) > Math.abs(deltaY))
-      //     // Horizontal swipe
-      //     deltaX > 0 ? scrollDiv(false) : scrollDiv(true);
-      // });
     </script>
   </body>
 </html>
