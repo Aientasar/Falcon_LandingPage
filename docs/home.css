@@ -7,8 +7,30 @@
     align-items: center;
     transform-origin: center;
     transform: scale(1.1);
-    max-height: 650px;
+    max-height: 700px;
     margin-top: -3em;
+}
+
+#entrance .scroller {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 1em;
+    bottom: 0;
+    font-size: 2em;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    transition: all 1s !important;
+}
+
+.scroller small {
+    white-space: nowrap;
+    font-size: 14px;
 }
 
 div#home {
@@ -67,7 +89,7 @@ div#home {
     transform-origin: center;
     width: 60% !important;
     height: 500px;
-    box-shadow: 0px -1px 20px 7px rgb(223 223 223 / 15%);
+    box-shadow: 0px -1px 40px 20px rgb(0 0 0);
 }
 
 #carousel div.next {

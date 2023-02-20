@@ -180,9 +180,9 @@ const $$ = (str) => document.querySelectorAll(str);
       $("#next").addEventListener("click", app.carousel.next);
       app.selected = $(".selected");
 
-      setInterval(() => {
-        app.carousel.next();
-      }, 5000);
+      // setInterval(() => {
+      //   app.carousel.next();
+      // }, 5000);
     },
     state: {},
   };
