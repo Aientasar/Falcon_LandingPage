@@ -639,101 +639,104 @@
         },
         complete: function (anim) {
           document.querySelector(".scroller").classList.remove("d-none");
-          document.addEventListener("wheel", (event) => {
-            if (isScrolled) return;
-            isScrolled = true;
-            document.querySelector(".scroller").classList.add("d-none");
-            anime.timeline({ loop: false }).add({
-              targets: "#typewriter ",
-              translateX: [0, -30],
-              opacity: [1, 0],
-              easing: "easeOutExpo",
-              duration: 1100,
-              delay: (el, i) => 100 + 30 * i,
-              complete: function (anim) {
-                document.querySelector(".mainContent").style.opacity = 1;
-                document.querySelector("#entrance").classList.add("d-none");
-                document.querySelector("#home").classList.remove("d-none");
-                document.querySelector("#events").classList.remove("d-none");
-                document
-                  .querySelector("body")
-                  .classList.remove("overflow-hidden");
-                // Scroll Reveal
-                ScrollReveal().reveal(".widget", {
-                  distance: "100%",
-                  opacity: 0,
-                  origin: "bottom",
-                  interval: 100,
-                  scale: 1.1,
-                  delay: 300,
-                });
-                ScrollReveal().reveal(".subhead", {
-                  opacity: 0,
-                  duration: 1000,
-                });
-                ScrollReveal().reveal(".anim_fadeUp", {
-                  distance: "20%",
-                  origin: "bottom",
-                  interval: 100,
-                  delay: 300,
-                  opacity: 0,
-                  duration: 1000,
-                });
-                ScrollReveal().reveal(".anim_right", {
-                  distance: "20%",
-                  origin: "right",
-                  delay: 300,
-                  opacity: 0,
-                  duration: 1000,
-                });
-                ScrollReveal().reveal(".anim_left", {
-                  distance: "20%",
-                  origin: "left",
-                  delay: 300,
-                  opacity: 0,
-                  duration: 1000,
-                });
-                ScrollReveal().reveal("#accordion .card", {
-                  distance: "20%",
-                  origin: "bottom",
-                  interval: 100,
-                  delay: 300,
-                  opacity: 0,
-                  duration: 1000,
-                });
-                ScrollReveal().reveal("#process ul li", {
-                  distance: "20%",
-                  origin: "left",
-                  interval: 100,
-                  delay: 300,
-                  opacity: 0,
-                  duration: 1000,
-                  afterReveal: function (el) {
-                    setTimeout(() => {
-                      new LeaderLine(
-                        document.getElementById("process1"),
-                        document.getElementById("process2"),
-                        {
-                          dash: { animation: true },
-                          color: "#efefef",
-                          size: 2,
-                          showEffectName: "draw",
-                        }
-                      );
-                      new LeaderLine(
-                        document.getElementById("process2"),
-                        document.getElementById("process3"),
-                        {
-                          dash: { animation: true },
-                          color: "#efefef",
-                          size: 2,
-                          showEffectName: "draw",
-                        }
-                      );
-                    }, 300);
-                  },
-                });
-              },
+
+          ["wheel", "touchmove"].forEach(function (e) {
+            document.addEventListener(e, (event) => {
+              if (isScrolled) return;
+              isScrolled = true;
+              document.querySelector(".scroller").classList.add("d-none");
+              anime.timeline({ loop: false }).add({
+                targets: "#typewriter ",
+                translateX: [0, -30],
+                opacity: [1, 0],
+                easing: "easeOutExpo",
+                duration: 1100,
+                delay: (el, i) => 100 + 30 * i,
+                complete: function (anim) {
+                  document.querySelector(".mainContent").style.opacity = 1;
+                  document.querySelector("#entrance").classList.add("d-none");
+                  document.querySelector("#home").classList.remove("d-none");
+                  document.querySelector("#events").classList.remove("d-none");
+                  document
+                    .querySelector("body")
+                    .classList.remove("overflow-hidden");
+                  // Scroll Reveal
+                  ScrollReveal().reveal(".widget", {
+                    distance: "100%",
+                    opacity: 0,
+                    origin: "bottom",
+                    interval: 100,
+                    scale: 1.1,
+                    delay: 300,
+                  });
+                  ScrollReveal().reveal(".subhead", {
+                    opacity: 0,
+                    duration: 1000,
+                  });
+                  ScrollReveal().reveal(".anim_fadeUp", {
+                    distance: "20%",
+                    origin: "bottom",
+                    interval: 100,
+                    delay: 300,
+                    opacity: 0,
+                    duration: 1000,
+                  });
+                  ScrollReveal().reveal(".anim_right", {
+                    distance: "20%",
+                    origin: "right",
+                    delay: 300,
+                    opacity: 0,
+                    duration: 1000,
+                  });
+                  ScrollReveal().reveal(".anim_left", {
+                    distance: "20%",
+                    origin: "left",
+                    delay: 300,
+                    opacity: 0,
+                    duration: 1000,
+                  });
+                  ScrollReveal().reveal("#accordion .card", {
+                    distance: "20%",
+                    origin: "bottom",
+                    interval: 100,
+                    delay: 300,
+                    opacity: 0,
+                    duration: 1000,
+                  });
+                  ScrollReveal().reveal("#process ul li", {
+                    distance: "20%",
+                    origin: "left",
+                    interval: 100,
+                    delay: 300,
+                    opacity: 0,
+                    duration: 1000,
+                    afterReveal: function (el) {
+                      setTimeout(() => {
+                        new LeaderLine(
+                          document.getElementById("process1"),
+                          document.getElementById("process2"),
+                          {
+                            dash: { animation: true },
+                            color: "#efefef",
+                            size: 2,
+                            showEffectName: "draw",
+                          }
+                        );
+                        new LeaderLine(
+                          document.getElementById("process2"),
+                          document.getElementById("process3"),
+                          {
+                            dash: { animation: true },
+                            color: "#efefef",
+                            size: 2,
+                            showEffectName: "draw",
+                          }
+                        );
+                      }, 300);
+                    },
+                  });
+                },
+              });
             });
           });
         },
