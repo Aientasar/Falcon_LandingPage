@@ -142,108 +142,6 @@
           id="home"
           class="col-12 divider d-none mb-5 animate__animated animate__fadeIn animate__faster"
         >
-          <!-- <main class="position-relative w-100 h-100">
-            <div id="carousel" class="carousel">
-              <div id="item_1" class="hideLeft">
-                <video autoplay controls>
-                  <source src="videos/auth.webm" type="video/webm" />
-                </video>
-                <div class="carousel_text">
-                  <h5>Drowsy Driving</h5>
-                  <p>Monitors if a driver is Yawning,Closing Eyes or Sleepy</p>
-                </div>
-              </div>
-
-              <div id="item_2" class="prevLeftSecond">
-                <video autoplay controls>
-                  <source src="videos/auth.webm" type="video/webm" />
-                </video>
-                <div class="carousel_text">
-                  <h5>Drowsy Driving</h5>
-                  <p>Monitors if a driver is Yawning,Closing Eyes or Sleepy</p>
-                </div>
-              </div>
-
-              <div id="item_3" class="prev">
-                <video autoplay controls>
-                  <source src="videos/auth.webm" type="video/webm" />
-                </video>
-                <div class="carousel_text">
-                  <h5>Drowsy Driving</h5>
-                  <p>Monitors if a driver is Yawning,Closing Eyes or Sleepy</p>
-                </div>
-              </div>
-
-              <div id="item_4" class="selected">
-                <video autoplay autoplay muted loop>
-                  <source src="videos/auth.webm" type="video/webm" />
-                </video>
-                <div class="carousel_text">
-                  <h5>Drowsy Driving</h5>
-                  <p>Monitors if a driver is Yawning,Closing Eyes or Sleepy</p>
-                </div>
-              </div>
-
-              <div id="item_5" class="next">
-                <video autoplay controls>
-                  <source src="videos/auth.webm" type="video/webm" />
-                </video>
-                <div class="carousel_text">
-                  <h5>Drowsy Driving</h5>
-                  <p>Monitors if a driver is Yawning,Closing Eyes or Sleepy</p>
-                </div>
-              </div>
-
-              <div id="item_6" class="nextRightSecond">
-                <video autoplay controls>
-                  <source src="videos/auth.webm" type="video/webm" />
-                </video>
-                <div class="carousel_text">
-                  <h5>Drowsy Driving</h5>
-                  <p>Monitors if a driver is Yawning,Closing Eyes or Sleepy</p>
-                </div>
-              </div>
-
-              <div id="item_7" class="hideRight">
-                <video autoplay controls>
-                  <source src="videos/auth.webm" type="video/webm" />
-                </video>
-                <div class="carousel_text">
-                  <h5>Drowsy Driving</h5>
-                  <p>Monitors if a driver is Yawning,Closing Eyes or Sleepy</p>
-                </div>
-              </div>
-
-              <div id="item_8" class="hideRight">
-                <video autoplay controls>
-                  <source src="videos/auth.webm" type="video/webm" />
-                </video>
-                <div class="carousel_text">
-                  <h5>Drowsy Driving</h5>
-                  <p>Monitors if a driver is Yawning,Closing Eyes or Sleepy</p>
-                </div>
-              </div>
-            </div>
-            <button
-              style="left: 2%"
-              class="button-82-pushable"
-              role="button"
-              id="prev"
-              onclick="scrollDiv(false)"
-            >
-              <i class="bx bx-md bxs-chevron-left-circle"></i>
-            </button>
-            <button
-              style="right: 5%"
-              class="button-82-pushable"
-              role="button"
-              id="next"
-              onclick="scrollDiv(true)"
-            >
-              <i class="bx bx-md bxs-chevron-right-circle"></i>
-            </button>
-          </main> -->
-
           <div class="row desktopList">
             <div class="d-none d-xl-flex col-xl-6 eventNames">
               <ul onclick="changeTab(event.target)">
@@ -278,7 +176,7 @@
                   <h5 class="d-block d-xl-none">Ghost Driving</h5>
                 </li>
                 <li id="video4" class="activeVid">
-                  <video muted loop>
+                  <video muted>
                     <source src="videos/drowsy.webm" type="video/webm" />
                   </video>
                   <h5 class="d-block d-xl-none">Drowsy Driving</h5>
@@ -702,7 +600,6 @@
     ></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-    <script src="carousel.js"></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/leader-line/1.0.3/leader-line.min.js"
       integrity="sha512-aFBNsI3+D6ObLLtyKwdZPZzDbcCC6+Bh+2UNV8HC0R95BpcBT+dmmZ5NMpJi/Ic8uO0W7FGcg33IfuHg+7Ryew=="
@@ -741,6 +638,16 @@
           checkDirection();
         });
 
+        var videos = document.querySelectorAll(".videos li video");
+        for (i = 0; i < videos.length; i++) {
+          videos[i].addEventListener("ended", function (event) {
+            changeTab(
+              document.getElementById("activeText").nextElementSibling,
+              document.body.clientWidth < 1200
+            );
+          });
+        }
+
         var myModal = new bootstrap.Modal(
           document.getElementById("videoModal"),
           null
@@ -772,19 +679,9 @@
         document.getElementById("modalVideoPlayer").src = null;
       }
 
-      let videoList = [
-        "auth",
-        "distarcted",
-        "drowsy",
-        "eyeoffroad",
-        "ghost",
-        "idle",
-        "overspeed",
-        "seatbelt",
-      ];
       changeActive();
 
-      function changeTab(elem, isMobile = fals, isRight = false) {
+      function changeTab(elem, isMobile = false) {
         //change video code --> only video elemnt is chnaged
         document.getElementById("activeText").removeAttribute("id");
         elem.setAttribute("id", "activeText");

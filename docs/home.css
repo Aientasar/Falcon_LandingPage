@@ -234,7 +234,7 @@ main>button:focus:not(:focus-visible) {
 .desktopList ul li {
     font-family: 'Poppins',
         sans-serif;
-    font-size: 2.5em;
+    font-size: 3em;
     text-align: center;
     line-height: 2.4;
     font-weight: 900;
