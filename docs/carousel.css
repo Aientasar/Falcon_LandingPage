@@ -173,16 +173,13 @@ ul.feature_list li {
 
 div#entrance {
   position: fixed;
-  top: 5em;
   left: 0;
-  height: 100vh;
+  height: 80vh;
   width: 100vw;
   margin: 0;
   display: flex;
-  align-items: center;
   justify-content: center;
-  max-height: 600px;
-  word-break: break-word;
+  padding-top: 10%;
 }
 
 @keyframes AnimateBG {
@@ -289,6 +286,8 @@ div#mobile_carousel {
   margin-bottom: 2em;
   border-radius: 2em;
   object-fit: cover;
+  box-shadow: 0px -1px 20px 7px rgb(223 223 223 / 15%);
+  background: white;
 }
 
 
@@ -602,5 +601,3 @@ footer {
     z-index: -1;
   }
 }
-
-@media only screen and (max-width: 576px) {}

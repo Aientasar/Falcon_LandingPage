@@ -48,15 +48,14 @@ div#home {
     border-radius: 1em;
     width: 10%;
     opacity: .6;
+    border: solid 1px #efefef;
 }
 
-#carousel div img {
+#carousel div img,
+#carousel div video {
     width: 100%;
     transition: all 400ms;
     height: 100%;
-    object-fit: cover;
-    background: #111;
-    filter: blur(0px);
 }
 
 #carousel div.hideLeft {
@@ -89,7 +88,8 @@ div#home {
     transform-origin: center;
     width: 60% !important;
     height: 500px;
-    box-shadow: 0px -1px 40px 20px rgb(0 0 0);
+    box-shadow: 0px -1px 20px 7px rgb(223 223 223 / 15%);
+    border: solid 2px #efefef;
 }
 
 #carousel div.next {
