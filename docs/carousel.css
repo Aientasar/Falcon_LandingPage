@@ -14,7 +14,7 @@ img {
 .widget img,
 .widget video {
   object-fit: contain;
-  height: auto;
+  height: 30em;
   filter: brightness(.8);
   transition: all .3s;
   overflow: hidden;
@@ -483,7 +483,7 @@ footer {
 
 .widget h5 {
   font-weight: 600;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 /* mobile & tablet */
@@ -509,7 +509,7 @@ footer {
   }
 
   .widget video {
-    /* height: 15em; */
+    height: 15em;
   }
 
   .etr div {
@@ -656,7 +656,7 @@ footer {
   .activeVid h5 {
     position: absolute;
     bottom: -2.5em;
-    font-size: 28px;
+    font-size: 22px;
     color: white;
     width: 100%;
     font-weight: 900;
