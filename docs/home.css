@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Poppins:wght@200;300;400;600;700;700&display=swap');
+
 #carousel {
     position: relative;
     height: 100%;
@@ -34,7 +36,7 @@
 }
 
 div#home {
-    height: 80vh;
+    height: 100vh;
 }
 
 #carousel img:hover {
@@ -48,7 +50,7 @@ div#home {
     border-radius: 1em;
     width: 10%;
     opacity: .6;
-    border: solid 1px #efefef;
+    border: solid 1px #efefef
 }
 
 #carousel div img,
@@ -56,6 +58,7 @@ div#home {
     width: 100%;
     transition: all 400ms;
     height: 100%;
+    background-color: black;
 }
 
 #carousel div.hideLeft {
@@ -89,7 +92,7 @@ div#home {
     width: 60% !important;
     height: 500px;
     box-shadow: 0px -1px 20px 7px rgb(223 223 223 / 15%);
-    border: solid 2px #efefef;
+    border: none;
 }
 
 #carousel div.next {
@@ -175,4 +178,106 @@ main>button:focus:not(:focus-visible) {
 
 .selected .carousel_text p {
     transition-delay: .6s;
+}
+
+.desktopList>div {
+    display: flex;
+    height: 100vh;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.desktopList .videos li {
+    height: calc(100% - 4em);
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    transition: all .3s;
+    border: solid 2px;
+    padding: .5em;
+    border-radius: 1em;
+    flex-direction: column;
+    max-height: 900px;
+    transition-delay: 0s;
+    transform: scale(.7);
+}
+
+.activeVid {
+    opacity: 1 !important;
+    transform: scale(1) !important;
+    transition-delay: .2s !important;
+}
+
+.videos li video {
+    height: 100%;
+    object-fit: contain;
+    border-radius: 14px;
+}
+
+.videos li video.active {
+    z-index: 1;
+}
+
+.desktopList ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    padding: 0;
+}
+
+.desktopList ul li {
+    font-family: 'Poppins',
+        sans-serif;
+    font-size: 2.5em;
+    text-align: center;
+    line-height: 2.4;
+    font-weight: 900;
+    opacity: 1;
+    position: absolute;
+    margin: auto;
+    transition: all .3s;
+    display: inline-flex;
+    cursor: pointer;
+}
+
+li#activeText {
+    opacity: 1 !important;
+    transform: none !important;
+}
+
+div#videoModal {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 11;
+    transition: all .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+video#modalVideoPlayer {
+    height: 90%;
+    z-index: 1;
+    border: solid 2px;
+    border-radius: 2em;
+    max-width: 90%;
+}
+
+div#videoModal::before {
+    content: '';
+    position: absolute;
+    background: #000000;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
 }

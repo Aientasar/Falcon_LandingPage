@@ -28,8 +28,32 @@
   </head>
   <body class="container overflow-hidden">
     <div class="bg"></div>
+    <div
+      id="videoModal"
+      class="d-none animate__animated animate__fadeIn animate__faster"
+    >
+      <i
+        onclick="closeDialog()"
+        class="bx bx-x-circle"
+        style="
+          position: absolute;
+          font-size: 3em;
+          color: white;
+          z-index: 12;
+          right: 1em;
+          top: 1em;
+          cursor: pointer;
+        "
+      ></i>
+      <video
+        controls
+        class="animate__animated animate__zoomIn animate__faster animate__delay-0.3s"
+        loop
+        id="modalVideoPlayer"
+      ></video>
+    </div>
     <header>
-      <nav class="navbar navbar-expand-lg navbar-dark">
+      <nav class="navbar navbar-expand-xl navbar-dark">
         <div class="container-fluid" style="position: relative">
           <button
             class="navbar-toggler border-0 p-2 mt-4"
@@ -49,7 +73,7 @@
             id="navbarSupportedContent"
           >
             <ul
-              class="navbar-nav me-auto mb-2 mb-lg-0"
+              class="navbar-nav me-auto mb-2 mb-xl-0"
               style="text-align: center"
             >
               <li class="nav-item">
@@ -116,9 +140,9 @@
       <div class="mainContent" style="opacity: 0; transition: opacity 2s">
         <div
           id="home"
-          class="col-12 divider d-none mb-5 animate__animated animate__zoomIn animate__faster"
+          class="col-12 divider d-none mb-5 animate__animated animate__fadeIn animate__faster"
         >
-          <main class="position-relative w-100 h-100">
+          <!-- <main class="position-relative w-100 h-100">
             <div id="carousel" class="carousel">
               <div id="item_1" class="hideLeft">
                 <video autoplay controls>
@@ -218,7 +242,74 @@
             >
               <i class="bx bx-md bxs-chevron-right-circle"></i>
             </button>
-          </main>
+          </main> -->
+
+          <div class="row desktopList">
+            <div class="d-none d-xl-flex col-xl-6 eventNames">
+              <ul onclick="changeTab(event.target)">
+                <li data-indexText="1">Over Speeding</li>
+                <li data-indexText="2">No Seat Belt</li>
+                <li data-indexText="3">Ghost Position</li>
+                <li data-indexText="4" id="activeText">Drowsy Driving</li>
+                <li data-indexText="5">Distracted Driving</li>
+                <li data-indexText="6">Unauthorised Driving</li>
+                <li data-indexText="7">Idle Engine</li>
+                <li data-indexText="8">Eye Off Road</li>
+              </ul>
+            </div>
+            <div class="col-12 col-xl-6 videos">
+              <ul>
+                <li id="video1">
+                  <video muted loop>
+                    <source src="videos/overspeed.webm" type="video/webm" />
+                  </video>
+                  <h5 class="d-block d-xl-none">Overspeeding</h5>
+                </li>
+                <li id="video2" class="vidPrev1">
+                  <video muted loop>
+                    <source src="videos/seatbelt.webm" type="video/webm" />
+                  </video>
+                  <h5 class="d-block d-xl-none">No Seat-Belt</h5>
+                </li>
+                <li id="video3" class="vidPrev">
+                  <video muted loop>
+                    <source src="videos/ghost.webm" type="video/webm" />
+                  </video>
+                  <h5 class="d-block d-xl-none">Ghost Driving</h5>
+                </li>
+                <li id="video4" class="activeVid">
+                  <video muted loop>
+                    <source src="videos/drowsy.webm" type="video/webm" />
+                  </video>
+                  <h5 class="d-block d-xl-none">Drowsy Driving</h5>
+                </li>
+                <li id="video5" class="vidAfter">
+                  <video muted loop>
+                    <source src="videos/distracted.webm" type="video/webm" />
+                  </video>
+                  <h5 class="d-block d-xl-none">Distracted Driving</h5>
+                </li>
+                <li id="video6" class="vidAfter1">
+                  <video muted loop>
+                    <source src="videos/auth.webm" type="video/webm" />
+                  </video>
+                  <h5 class="d-block d-xl-none">Authorised Driving</h5>
+                </li>
+                <li id="video7">
+                  <video muted loop>
+                    <source src="videos/idle.webm" type="video/webm" />
+                  </video>
+                  <h5 class="d-block d-xl-none">Idle Engine</h5>
+                </li>
+                <li id="video8">
+                  <video muted loop>
+                    <source src="videos/eyesoffroad.webm" type="video/webm" />
+                  </video>
+                  <h5 class="d-block d-xl-none">Eyes Off Road</h5>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
         <div
           id="events"
@@ -227,63 +318,71 @@
           <h2 class="subhead">Monitoring Events</h2>
           <ul class="widget-list">
             <li class="widget">
-              <img src="assets/sample2.png" />
+              <video muted loop>
+                <source src="videos/drowsy.webm#t=1.75" type="video/webm" />
+              </video>
               <div class="carousel_text">
                 <h5>Drowsy Driving</h5>
               </div>
             </li>
             <li class="widget">
-              <img src="assets/sample2.png" />
+              <video muted loop>
+                <source src="videos/distracted.webm#t=1.75" type="video/webm" />
+              </video>
               <div class="carousel_text">
-                <h5>Drowsy Driving</h5>
+                <h5>Distracted Driving</h5>
               </div>
             </li>
             <li class="widget">
-              <img src="assets/sample1.png" />
+              <video muted loop>
+                <source src="videos/auth.webm#t=1.75" type="video/webm" />
+              </video>
               <div class="carousel_text">
-                <h5>Drowsy Driving</h5>
+                <h5>Authorised Driving</h5>
               </div>
             </li>
             <li class="widget">
-              <img src="assets/sample2.png" />
+              <video muted loop>
+                <source
+                  src="videos/eyesoffroad.webm#t=1.75"
+                  type="video/webm"
+                />
+              </video>
               <div class="carousel_text">
-                <h5>Drowsy Driving</h5>
+                <h5>Eyes Off Road</h5>
               </div>
             </li>
             <li class="widget">
-              <img src="assets/sample3.png" />
+              <video muted loop>
+                <source src="videos/idle.webm#t=1.75" type="video/webm" />
+              </video>
               <div class="carousel_text">
-                <h5>Drowsy Driving</h5>
+                <h5>Idle Engine</h5>
+              </div>
+            </li>
+
+            <li class="widget">
+              <video muted loop>
+                <source src="videos/ghost.webm#t=1.75" type="video/webm" />
+              </video>
+              <div class="carousel_text">
+                <h5>Ghost Driving</h5>
               </div>
             </li>
             <li class="widget">
-              <img src="assets/sample1.png" />
+              <video muted loop>
+                <source src="videos/seatbelt.webm#t=1.75" type="video/webm" />
+              </video>
               <div class="carousel_text">
-                <h5>Drowsy Driving</h5>
+                <h5>No Seat-Belt</h5>
               </div>
             </li>
             <li class="widget">
-              <img src="assets/sample2.png" />
+              <video muted loop>
+                <source src="videos/overspeed.webm#t=1.75" type="video/webm" />
+              </video>
               <div class="carousel_text">
-                <h5>Drowsy Driving</h5>
-              </div>
-            </li>
-            <li class="widget">
-              <img src="assets/sample3.png" />
-              <div class="carousel_text">
-                <h5>Drowsy Driving</h5>
-              </div>
-            </li>
-            <li class="widget">
-              <img src="assets/sample1.png" />
-              <div class="carousel_text">
-                <h5>Drowsy Driving</h5>
-              </div>
-            </li>
-            <li class="widget">
-              <img src="assets/sample2.png" />
-              <div class="carousel_text">
-                <h5>Drowsy Driving</h5>
+                <h5>Overspeeding</h5>
               </div>
             </li>
           </ul>
@@ -409,7 +508,7 @@
           <div class="plans_box anim_fadeUp">
             <div class="plans_container">
               <h3>3 Months</h3>
-              <h5><small>Per Device</small><label>$ 30 USD/Month</label></h5>
+              <h5><small>Per Device</small><label>$ 50 USD/Month</label></h5>
               <hr />
               <ul>
                 <li><i class="bx bxs-check-circle"></i>Free Installation</li>
@@ -427,8 +526,8 @@
             <div
               class="plans_container selected animate__animated animate__pulse animate__infinite animate__slow"
             >
-              <h3>3 Months</h3>
-              <h5><small>Per Device</small><label>$ 30 USD/Month</label></h5>
+              <h3>6 Months</h3>
+              <h5><small>Per Device</small><label>$ 40 USD/Month</label></h5>
               <hr />
               <ul>
                 <li><i class="bx bxs-check-circle"></i>Free Installation</li>
@@ -444,7 +543,7 @@
               <button>Order Now</button>
             </div>
             <div class="plans_container">
-              <h3>3 Months</h3>
+              <h3>12 Months</h3>
               <h5><small>Per Device</small><label>$ 30 USD/Month</label></h5>
               <hr />
               <ul>
@@ -471,10 +570,8 @@
                   class="btn btn-link"
                   data-toggle="collapse"
                   data-target="#collapseOne"
-                  aria-expanded="true"
-                  aria-controls="collapseOne"
                 >
-                  Collapsible Group Item #1
+                  Is Device and Softwares both Included in the Pacakge?
                 </button>
                 <i class="bx bx-plus bx-md"></i>
               </div>
@@ -486,17 +583,9 @@
                 data-parent="#accordion"
               >
                 <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life
-                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                  non cupidatat skateboard dolor brunch. Food truck quinoa
-                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                  aliqua put a bird on it squid single-origin coffee nulla
-                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                  beer labore wes anderson cred nesciunt sapiente ea proident.
-                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                  beer farm-to-table, raw denim aesthetic synth nesciunt you
-                  probably haven't heard of them accusamus labore sustainable
-                  VHS.
+                  Yes,All our Pacakges include Hardware Device,Console
+                  Software,Owner Andriod & IOS Applications,Driver Andriod & IOS
+                  Application
                 </div>
               </div>
             </div>
@@ -505,33 +594,29 @@
                 <button
                   class="btn btn-link"
                   data-toggle="collapse"
-                  data-target="#collapseOne"
-                  aria-expanded="true"
-                  aria-controls="collapseOne"
+                  data-target="#collapseTwo"
                 >
-                  Collapsible Group Item #1
+                  How is this Diffrent from a Driver Moitoring System ?
                 </button>
                 <i class="bx bx-plus bx-md"></i>
               </div>
 
               <div
-                id="collapseOne"
+                id="collapseTwo"
                 class="collapse"
                 aria-labelledby="headingOne"
                 data-parent="#accordion"
               >
                 <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life
-                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                  non cupidatat skateboard dolor brunch. Food truck quinoa
-                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                  aliqua put a bird on it squid single-origin coffee nulla
-                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                  beer labore wes anderson cred nesciunt sapiente ea proident.
-                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                  beer farm-to-table, raw denim aesthetic synth nesciunt you
-                  probably haven't heard of them accusamus labore sustainable
-                  VHS.
+                  Genrelly,a Driver Monitoring System only identifies Drowsy
+                  Driving and Provides an In-Cabin Alarm,Falcon Driver
+                  Protection System is more advanced as it identifies more than
+                  12 dangerous activities and along with providing In-Cabin
+                  Alarm it sends Live Notification to the Vehcile
+                  Owners,allowing them to take Action in Appropriate Time,Falcon
+                  Mobile Apps has Data of the all the Events recorded for
+                  lifetime of all the Trips acting as an Evidence in case of
+                  resolving Disputes
                 </div>
               </div>
             </div>
@@ -540,33 +625,23 @@
                 <button
                   class="btn btn-link"
                   data-toggle="collapse"
-                  data-target="#collapseOne"
-                  aria-expanded="true"
-                  aria-controls="collapseOne"
+                  data-target="#collapseThree"
                 >
-                  Collapsible Group Item #1
+                  Can i install it my Car?
                 </button>
                 <i class="bx bx-plus bx-sm"></i>
               </div>
 
               <div
-                id="collapseOne"
+                id="collapseThree"
                 class="collapse"
                 aria-labelledby="headingOne"
                 data-parent="#accordion"
               >
                 <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life
-                  accusamus terry richardson ad squid. 3 wolf moon officia aute,
-                  non cupidatat skateboard dolor brunch. Food truck quinoa
-                  nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt
-                  aliqua put a bird on it squid single-origin coffee nulla
-                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft
-                  beer labore wes anderson cred nesciunt sapiente ea proident.
-                  Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                  beer farm-to-table, raw denim aesthetic synth nesciunt you
-                  probably haven't heard of them accusamus labore sustainable
-                  VHS.
+                  Yes,Falcon Driver Protection System supports all types of
+                  Vehciles,Cars,Trucks,Buses etc.our expert team installs the
+                  device and you can start using it right away.
                 </div>
               </div>
             </div>
@@ -590,7 +665,7 @@
               padding-bottom: 1em;
             "
           >
-            <strong class="d-none d-md-block">FALCON ON SOCIAL MEDIA</strong>
+            <strong class="d-none d-xl-block">FALCON ON SOCIAL MEDIA</strong>
             <div class="social">
               <i class="bx bxl-facebook"></i>
               <i class="bx bxl-linkedin"></i>
@@ -634,7 +709,154 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <!-- Functions -->
     <script>
+      window.onload = function () {
+        let touchstartX = 0;
+        let touchendX = 0;
+
+        function checkDirection() {
+          if (touchendX < touchstartX)
+            changeTab(
+              document.getElementById("activeText").nextElementSibling,
+              true
+            );
+
+          if (touchendX > touchstartX)
+            changeTab(
+              document.getElementById("activeText").previousElementSibling,
+              true
+            );
+        }
+
+        document
+          .querySelector(".videos")
+          .addEventListener("touchstart", (e) => {
+            touchstartX = e.changedTouches[0].screenX;
+          });
+
+        document.querySelector(".videos").addEventListener("touchend", (e) => {
+          console.log(e);
+          touchendX = e.changedTouches[0].screenX;
+          checkDirection();
+        });
+
+        var myModal = new bootstrap.Modal(
+          document.getElementById("videoModal"),
+          null
+        );
+        var inputs = document.querySelectorAll("video");
+        for (i = 0; i < inputs.length; i++) {
+          inputs[i].addEventListener("click", function () {
+            document.getElementById("videoModal").classList.remove("d-none");
+            document.getElementById("modalVideoPlayer").src =
+              "videos/auth.webm";
+            document.getElementById("modalVideoPlayer").currentTime = 0;
+            document.getElementById("modalVideoPlayer").play();
+          });
+        }
+        var widgets = document.querySelectorAll(".widget video");
+        for (i = 0; i < widgets.length; i++) {
+          widgets[i].addEventListener("mouseover", function (event) {
+            event.target.currentTime = 0;
+            event.target.play();
+          });
+          widgets[i].addEventListener("mouseout", function (event) {
+            event.target.pause();
+          });
+        }
+      };
+
+      function closeDialog() {
+        document.getElementById("videoModal").classList.add("d-none");
+        document.getElementById("modalVideoPlayer").src = null;
+      }
+
+      let videoList = [
+        "auth",
+        "distarcted",
+        "drowsy",
+        "eyeoffroad",
+        "ghost",
+        "idle",
+        "overspeed",
+        "seatbelt",
+      ];
+      changeActive();
+
+      function changeTab(elem, isMobile = fals, isRight = false) {
+        //change video code --> only video elemnt is chnaged
+        document.getElementById("activeText").removeAttribute("id");
+        elem.setAttribute("id", "activeText");
+        document.querySelector(".activeVid").classList.remove("activeVid");
+        document
+          .getElementById("video" + elem.attributes["data-indextext"].value)
+          .classList.add("activeVid");
+        document.querySelector("video").pause();
+        document.querySelector(".activeVid video").currentTime = 0;
+        document.querySelector(".activeVid video").play();
+
+        //in mobile transtion
+        if (isMobile) {
+          let liveCurrent = document.querySelector(".activeVid");
+          document.querySelector(".vidAfter")?.classList.remove("vidAfter");
+          document.querySelector(".vidAfter1")?.classList.remove("vidAfter1");
+          document.querySelector(".vidPrev")?.classList.remove("vidPrev");
+          document.querySelector(".vidPrev1")?.classList.remove("vidPrev1");
+
+          liveCurrent?.nextElementSibling?.classList.add("vidAfter");
+          liveCurrent?.nextElementSibling?.nextElementSibling?.classList.add(
+            "vidAfter1"
+          );
+
+          liveCurrent?.previousElementSibling?.classList.add("vidPrev");
+          liveCurrent?.previousElementSibling?.previousElementSibling?.classList.add(
+            "vidPrev1"
+          );
+        }
+        changeActive();
+      }
+
+      function changeActive() {
+        let elem = document.getElementById("activeText");
+        let value = 0.8;
+        let translateValue = 0;
+        let i = 0;
+
+        while (elem?.previousElementSibling || i < 3) {
+          i = i + 1;
+          if (!elem.previousElementSibling) {
+            elem.parentElement.prepend(elem.parentElement.lastElementChild);
+          } else {
+            elem = elem.previousElementSibling;
+            value = value - 0.2;
+            translateValue = translateValue - 70 + 5 * i;
+            elem.style.opacity = value;
+            elem.style.transform =
+              "translateY(" + translateValue + "%) scale(" + value + ")";
+          }
+        }
+
+        elem = document.getElementById("activeText");
+        value = 0.8;
+        translateValue = 0;
+        i = 0;
+
+        while (elem?.nextElementSibling || i < 3) {
+          i = i + 1;
+          if (!elem.nextElementSibling) {
+            elem.parentElement.append(elem.parentElement.firstElementChild);
+          } else {
+            elem = elem.nextElementSibling;
+            value = value - 0.2;
+            translateValue = translateValue + 70 - 5 * i;
+            elem.style.opacity = value;
+            elem.style.transform =
+              "translateY(" + translateValue + "%) scale(" + value + ")";
+          }
+        }
+      }
+
       var textWrapper = document.getElementById("typewriter");
       textWrapper.innerHTML = textWrapper.textContent.replace(
         /\S/g,
@@ -673,6 +895,9 @@
                   document.querySelector("#entrance").classList.add("d-none");
                   document.querySelector("#home").classList.remove("d-none");
                   document.querySelector("#events").classList.remove("d-none");
+                  setTimeout(() => {
+                    document.querySelector(".activeVid video").play();
+                  }, 1000);
                   document
                     .querySelector("body")
                     .classList.remove("overflow-hidden");
