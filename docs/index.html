@@ -670,6 +670,7 @@
             event.target.play();
           });
           widgets[i].addEventListener("mouseout", function (event) {
+            event.target.currentTime = 2;
             event.target.pause();
           });
         }

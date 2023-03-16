@@ -18,7 +18,7 @@ img {
   filter: brightness(.8);
   transition: all .3s;
   overflow: hidden;
-  width: 100%;
+  border-radius: 8px;
 }
 
 .widget video:hover {
