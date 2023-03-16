@@ -613,7 +613,7 @@
         let touchendX = 0;
 
         function checkDirection() {
-          if (Math.abs(touchendX - touchstartX) < 150) return;
+          if (Math.abs(touchendX - touchstartX) < 80) return;
           if (touchendX < touchstartX)
             changeTab(
               document.getElementById("activeText").nextElementSibling,
