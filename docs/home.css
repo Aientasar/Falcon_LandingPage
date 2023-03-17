@@ -226,7 +226,7 @@ main>button:focus:not(:focus-visible) {
     display: flex;
     align-items: center;
     height: 100%;
-    width: 100%;
+    width: calc(100% - 5em);
     justify-content: center;
     padding: 0;
 }
