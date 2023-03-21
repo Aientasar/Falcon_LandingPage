@@ -75,10 +75,12 @@ li.nav-item .active::after {
   border-radius: 3px;
 }
 
-#typewriter {
+#app {
   font-weight: bold;
   line-height: 1.8;
   max-width: 25em;
+  text-align: center;
+  transition: all 1s;
 }
 
 .letter {
