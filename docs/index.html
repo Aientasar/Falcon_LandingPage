@@ -125,7 +125,8 @@
 
     <row>
       <div id="entrance" class="col-12 divider overflow-hidden">
-        <h1 id="app"></h1>
+        <!-- <h1 id="app"></h1> -->
+        <h1 style="opacity: 0" class="h1 text-center p-5" id="typewriter"></h1>
         <div class="scroller d-none">
           <i
             class="bx bx-mouse animate__animated animate__bounce animate__infinite animate__slow"
@@ -646,132 +647,137 @@
       referrerpolicy="no-referrer"
     ></script>
 
-    <!-- TypeWriter JS 2 -->
-    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     <!-- Functions -->
     <script>
-      var app = document.getElementById("app");
+      let headerText =
+        "Falcon is a Live Driver Protection System. It helps prevent accidents caused by human neglect using artificial intelligence.";
 
-      var typewriter = new Typewriter(app, {
-        loop: false,
-        delay: 50,
+      var textWrapper = document.getElementById("typewriter");
+      console.log(headerText.split(" "));
+      let innerHtml = "";
+      headerText.split(" ").map((item) => {
+        if (item && item != "")
+          innerHtml = innerHtml + "<span class='letter'>" + item + "</span>";
       });
 
-      let isScrolled = false;
+      textWrapper.innerHTML = innerHtml;
+      textWrapper.style.opacity = 1;
 
-      typewriter
-        .typeString("Falcon is a Live Driver Protection System")
-        .pauseFor(500)
-        .typeString(
-          ",It helps to prevent Accidents caused by Human Neglect using Artificial Intelligence."
-        )
-        .callFunction(() => {
+      var isScrolled = false;
+
+      anime.timeline({ loop: false }).add({
+        targets: "#typewriter .letter",
+        translateX: [40, 0],
+        translateZ: 0,
+        opacity: [0, 1],
+        easing: "easeOutExpo",
+        duration: 1000,
+        delay: (el, i) => 500 + 30 * i,
+        complete: function (anim) {
           document.querySelector(".scroller").classList.remove("d-none");
           ["wheel", "touchmove"].forEach(function (e) {
             document.addEventListener(e, (event) => {
               if (isScrolled) return;
               isScrolled = true;
-              console.log("scrolled");
               document.querySelector(".scroller").classList.add("d-none");
-              document
-                .getElementById("app")
-                .classList.add(
-                  "animate__animated",
-                  "animate__lightSpeedOutRight"
-                );
-              setTimeout(() => {
-                document.querySelector(".mainContent").style.opacity = 1;
-                document.querySelector("#entrance").classList.add("d-none");
-                document.querySelector("#home").classList.remove("d-none");
-                document.querySelector("#events").classList.remove("d-none");
-                setTimeout(() => {
-                  document.querySelector(".activeVid video").play();
-                }, 1000);
-                document
-                  .querySelector("body")
-                  .classList.remove("overflow-hidden");
-                // Scroll Reveal
-                ScrollReveal().reveal(".widget", {
-                  distance: "100%",
-                  opacity: 0,
-                  origin: "bottom",
-                  interval: 100,
-                  scale: 1.1,
-                  delay: 300,
-                });
-                ScrollReveal().reveal(".subhead", {
-                  opacity: 0,
-                  duration: 1000,
-                });
-                ScrollReveal().reveal(".anim_fadeUp", {
-                  distance: "20%",
-                  origin: "bottom",
-                  interval: 100,
-                  delay: 300,
-                  opacity: 0,
-                  duration: 1000,
-                });
-                ScrollReveal().reveal(".anim_right", {
-                  distance: "20%",
-                  origin: "right",
-                  delay: 300,
-                  opacity: 0,
-                  duration: 1000,
-                });
-                ScrollReveal().reveal(".anim_left", {
-                  distance: "20%",
-                  origin: "left",
-                  delay: 300,
-                  opacity: 0,
-                  duration: 1000,
-                });
-                ScrollReveal().reveal("#accordion .card", {
-                  distance: "20%",
-                  origin: "bottom",
-                  interval: 100,
-                  delay: 300,
-                  opacity: 0,
-                  duration: 1000,
-                });
-                ScrollReveal().reveal("#process ul li", {
-                  distance: "20%",
-                  origin: "left",
-                  interval: 100,
-                  delay: 300,
-                  opacity: 0,
-                  duration: 1000,
-                  afterReveal: function (el) {
-                    setTimeout(() => {
-                      new LeaderLine(
-                        document.getElementById("process1"),
-                        document.getElementById("process2"),
-                        {
-                          dash: { animation: true },
-                          color: "#efefef",
-                          size: 2,
-                          showEffectName: "draw",
-                        }
-                      );
-                      new LeaderLine(
-                        document.getElementById("process2"),
-                        document.getElementById("process3"),
-                        {
-                          dash: { animation: true },
-                          color: "#efefef",
-                          size: 2,
-                          showEffectName: "draw",
-                        }
-                      );
-                    }, 300);
-                  },
-                });
-              }, 1000);
+              anime.timeline({ loop: false }).add({
+                targets: "#typewriter .letter",
+                translateX: [0, -30],
+                opacity: [1, 0],
+                easing: "easeOutExpo",
+                duration: 1100,
+                complete: function (anim) {
+                  document.querySelector(".mainContent").style.opacity = 1;
+                  document.querySelector("#entrance").classList.add("d-none");
+                  document.querySelector("#home").classList.remove("d-none");
+                  document.querySelector("#events").classList.remove("d-none");
+                  setTimeout(() => {
+                    document.querySelector(".activeVid video").play();
+                  }, 1000);
+                  document
+                    .querySelector("body")
+                    .classList.remove("overflow-hidden");
+                  // Scroll Reveal
+                  ScrollReveal().reveal(".widget", {
+                    distance: "100%",
+                    opacity: 0,
+                    origin: "bottom",
+                    interval: 100,
+                    scale: 1.1,
+                    delay: 300,
+                  });
+                  ScrollReveal().reveal(".subhead", {
+                    opacity: 0,
+                    duration: 1000,
+                  });
+                  ScrollReveal().reveal(".anim_fadeUp", {
+                    distance: "20%",
+                    origin: "bottom",
+                    interval: 100,
+                    delay: 300,
+                    opacity: 0,
+                    duration: 1000,
+                  });
+                  ScrollReveal().reveal(".anim_right", {
+                    distance: "20%",
+                    origin: "right",
+                    delay: 300,
+                    opacity: 0,
+                    duration: 1000,
+                  });
+                  ScrollReveal().reveal(".anim_left", {
+                    distance: "20%",
+                    origin: "left",
+                    delay: 300,
+                    opacity: 0,
+                    duration: 1000,
+                  });
+                  ScrollReveal().reveal("#accordion .card", {
+                    distance: "20%",
+                    origin: "bottom",
+                    interval: 100,
+                    delay: 300,
+                    opacity: 0,
+                    duration: 1000,
+                  });
+                  ScrollReveal().reveal("#process ul li", {
+                    distance: "20%",
+                    origin: "left",
+                    interval: 100,
+                    delay: 300,
+                    opacity: 0,
+                    duration: 1000,
+                    afterReveal: function (el) {
+                      setTimeout(() => {
+                        new LeaderLine(
+                          document.getElementById("process1"),
+                          document.getElementById("process2"),
+                          {
+                            dash: { animation: true },
+                            color: "#efefef",
+                            size: 2,
+                            showEffectName: "draw",
+                          }
+                        );
+                        new LeaderLine(
+                          document.getElementById("process2"),
+                          document.getElementById("process3"),
+                          {
+                            dash: { animation: true },
+                            color: "#efefef",
+                            size: 2,
+                            showEffectName: "draw",
+                          }
+                        );
+                      }, 300);
+                    },
+                  });
+                },
+              });
             });
           });
-
-          console.log("CALL");
-        }, this)
-        .start();
+        },
+      });
 
       window.onload = function () {
         let touchstartX = 0;

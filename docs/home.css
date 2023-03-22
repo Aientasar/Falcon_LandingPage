@@ -251,6 +251,11 @@ li#activeText {
     transform: none !important;
 }
 
+.letter {
+    margin-right: 10px;
+    line-height: 1.5;
+}
+
 div#videoModal {
     position: fixed;
     width: 100vw;
