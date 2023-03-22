@@ -688,4 +688,8 @@ footer {
     transition-delay: 0s !important;
     display: block !important;
   }
+
+  #typewriter {
+    line-height: 1.6;
+  }
 }

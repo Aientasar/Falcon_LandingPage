@@ -126,7 +126,11 @@
     <row>
       <div id="entrance" class="col-12 divider overflow-hidden">
         <!-- <h1 id="app"></h1> -->
-        <h1 style="opacity: 0" class="h1 text-center p-5" id="typewriter"></h1>
+        <h1
+          style="opacity: 0"
+          class="h1 text-center p-2 pt-5"
+          id="typewriter"
+        ></h1>
         <div class="scroller d-none">
           <i
             class="bx bx-mouse animate__animated animate__bounce animate__infinite animate__slow"
@@ -657,7 +661,8 @@
       let innerHtml = "";
       headerText.split(" ").map((item) => {
         if (item && item != "")
-          innerHtml = innerHtml + "<span class='letter'>" + item + "</span>";
+          innerHtml =
+            innerHtml + " " + "<span class='letter'>" + item + " </span>";
       });
 
       textWrapper.innerHTML = innerHtml;
@@ -671,8 +676,8 @@
         translateZ: 0,
         opacity: [0, 1],
         easing: "easeOutExpo",
-        duration: 1000,
-        delay: (el, i) => 500 + 30 * i,
+        duration: 2000,
+        delay: (el, i) => 1000 + 30 * i,
         complete: function (anim) {
           document.querySelector(".scroller").classList.remove("d-none");
           ["wheel", "touchmove"].forEach(function (e) {
